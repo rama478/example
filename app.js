@@ -37,14 +37,6 @@ app.get('/tasks', async (req, res) => {
     }
   });
 
-  app.get('/tasks', async (req, res) => {
-    try {
-      const tasks = await Task.find({ completed: true });  // Filtre les tâches complètes
-      res.status(200).send(tasks);
-    } catch (err) {
-      res.status(400).send(err);
-    }
-  });
   
   
 
