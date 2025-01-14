@@ -30,12 +30,14 @@ app.post('/tasks', async (req, res) => {
 // Ajout de la route GET pour récupérer toutes les tâches
 app.get('/tasks', async (req, res) => {
     try {
-      const tasks = await Task.find(); // Cette ligne récupère toutes les tâches
-      res.status(200).send(tasks);
+      const tasks = await Task.find(); // Récupère toutes les tâches
+      const completedTasks = tasks.filter(task => task.completed === true); // Filtre les tâches complètes
+      res.status(200).send(completedTasks);
     } catch (err) {
       res.status(400).send(err);
     }
   });
+  
 
   
   
